@@ -1,0 +1,11 @@
+By default priorityQueue is a Min-Heap . 
+So when you peek the element i.e with highest priority it return you the minimum value
+To create a Max - Heap use a Custom comparator like in second java file
+
+##        K-th largest element in Stream 
+
+This problem is a priority (heap) question where we maintain a DS that can efficiently return the K-th largest element at any point
+
+##          priority Queue with Custom Objects
+imagine you need to schedule tasks based on priority 
+
