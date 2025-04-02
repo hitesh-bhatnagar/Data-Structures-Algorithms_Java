@@ -76,10 +76,95 @@ int depth(Treenode root, int[] diameter){
 // Validate a Binary Search Tree
 
 boolean isvalid(Treenode root){
-    return validate(root,Long.MIN_VALUE,long.MAX_VALUE);
+    return validate(root,Long.MIN_VALUE,Long.MAX_VALUE);
 }
 
 boolean validate(Treenode root, long min, long max){
     if(root == null) return true;
-    if(root.val )
+    if(root.val <= min || root.val >= max) return false;
+    return validate(root.left, min, root.val) && validate(root.right, root.val, max);
 }
+
+
+// Serialise and deserialize a Binary Tree
+// Convert a tree into a string (serialize) and reconstruct it back (deserialize)
+
+String serialize(Treenode root){
+    if(root == null) return "null";
+    return root.val + "," +serialize(root.left) + serialize(root.right);
+}
+
+Treenode deserialize(String data){
+    Queue<String> nodes = new LinkedList<>(Arrays.asList(data.split(",")));
+    return buildTree(nodes);
+}
+
+TreeNode buildTree(Queue<String> nodes){
+    String val = nodes.poll();
+    if(val.equals("null")) return null;
+    TreeNode root = new TreeNode(Integer.parseInt(val));
+    root.left = buildTree(nodes);
+    root.right = buildTree(nodes);
+    return root;
+}
+
+// Kth smallest element in a BST
+// Concept : Inorder traversal of BST gives sorted order 
+int count = 0, result = -1;
+int k_smallest(Treenode root, int k){
+    inOrder(root, k);
+    return result;
+}
+void inOrder(Treenode root, int k){
+    if(root == null) return;
+    inOrder(root.left, k);
+    count++;
+    if(count == k){
+        result = root.val;
+        return;
+    }
+    inOrder(root.right,k);
+}
+
+
+// Recover a BST (swapped nodes)
+
+Treenode first = null, second = null, prev = new Treenode(Integer.MIN_VALUE);
+
+void recoverBST(Treenode root){
+    findswapped(root);
+    int temp = first.val;
+    first.val = second.val;
+    second.val = temp;
+}
+
+void findswapped(Treenode root){
+    if(root == null) return;
+    findswapped(root.left);
+    if(first == null && prev.val >= root.val) first = prev;
+    if(first != null && prev.val >= root.val) second = root;
+    prev = root;
+    findswapped(root.right); 
+}
+
+
+// Check if two Trees are identical
+
+boolean isSameTree(Treenode p, Treenode q){
+    if(p == null || q == null) return p == q;
+    return (p.val == q.val) && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+}
+
+// ## Check if the tree is symmetric (Mirror Image)
+boolean isSymmetric(Treenode root){
+    return root == null || isMirror(root.left , root.right);
+}
+
+boolean isMirror(Treenode t1, Treenode t2){
+    if(t1 == null || t2 == null) return t1 == t2;
+    return (t1.val== t2.val) && isMirror(t1.left, t2.right) && isMirror(t2.right, t2.left);
+}
+
+
+
+
