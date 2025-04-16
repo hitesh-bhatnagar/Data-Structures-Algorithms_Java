@@ -1,94 +1,112 @@
-class ListNode{
+import java.util.*;
+
+class ListNode {
     int val;
     ListNode next;
     ListNode(int val){
         this.val = val;
-        this.next = null;
+        this.next = next;
     }
 }
 
-// Build a LinkedList from an array 
-ListNode buildLL(int[] arr){
-    if(arr.length == 0) return null;
-    ListNode head = new ListNode(arr[0]);
-    ListNode current = head;
-    for(int i = 1; i< arr.length; i++){
-        current.next = new ListNode(arr[i]);
-        current = current.next;
-    }
-    return head;
-}
-
-
-// Traversal / print
-
-void traverse(ListNode head){
-    ListNode current = head;
-    while (current!= null){
-        System.out.println(current.val +"->");
-        current = current.next;
-    }
-    System.out.println("null");
-}
-
-// Reverse a LL
-ListNode reverseList(ListNode head){
-    ListNode prev = null;
-    ListNode current = head;
-    while(current != null){
-        ListNode nextnode = current.next;
-        current.next = prev;
-        prev = current;
-        current = nextnode;
-    }
-    return prev;
-}
-
-// Tortoise and Hair cycle detection
-
-boolean tortoise_hair(ListNode head){
-    if(head == null) return false;
-    ListNode slow = head, fast = head;
-    while(fast != null && fast.next != null){
-        slow = slow.next;
-        fast = fast.next.next;
-        if(slow == fast) return true;
-    } 
-    return false;
-}
-
-// Merge two sorted LinkedList
-ListNode merge(ListNode list1, ListNode list2){
-    if(l1 == null) return list2;
-    if(l2 == null) return list1;
-    if(list1.val < list2.val){
-        list1.next = merge(list1.next, list2);
-        return list1;
-    } {
-        list2.next = merge(list1,list2.next);
-        return list2;
+public class ListNode_functions{
+    
+    public static ListNode buildLL(int[] arr){
+        if(arr.length == 0) return null;
+        ListNode head = new ListNode(arr[0]);
+        ListNode current = head;
+        for(int i = 1; i< arr.length;i++){
+            current.next = new ListNode(arr[i]);
+            current = current.next;
+        }
+        return head;
     }
 
-}
-
-// find middle of the Linked List
-ListNode middleNode(ListNode head){
-    ListNode slow = head, fast = head;
-    while(fast != null && fast.next != null){
-        slow = slow.next;
-        fast = fast.next.next;
+    public static void traverse(ListNode head){
+        while(head != null){
+            System.out.print(head.val +" ");
+            head = head.next;
+        }
+        System.out.println("null");
     }
-    return slow; 
-}
 
-// Intersection of two or more LinkedList
-ListNode intersection(ListNode headA, ListNode headB){
-    if(headA == null || headB == null) return null;
-    ListNode a = headA, b = headB;
-    while(a != b){
-        a = (a == null) ? headB : a.next;
-        b = (b == null) ? headA : b.next;
-    } 
-    return a;
-}
+    public static ListNode reverseList(ListNode head){
+        ListNode prev = null;
+        while(head != null){
+            ListNode nextNode = head.next;
+            head.next = prev;
+            prev = head;
+            head = nextNode;
+        }
+        return prev;
 
+    }
+
+    public static boolean hasCycle(ListNode head){
+        ListNode slow = head, fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast) return true;
+        }
+
+        return false;
+    }
+
+    public static ListNode merge(ListNode list1, ListNode list2){
+        if(list1 == null) return list2;
+        if(list2 == null) return list1;
+        if(list1.val < list2.val){
+            list1.next = merge(list1.next, list2);
+            return list1;
+        }else{
+            list2.next = merge(list1, list2.next);
+            return list2;
+        }
+    }
+
+    public static ListNode middleMode(ListNode head){
+        ListNode slow = head, fast = head; 
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public static ListNode getIntersectionNode(ListNode headA, ListNode headB){
+        ListNode a = headA,  b = headB;
+        while (a!=b){
+            a = (a == null) ? headB : a.next;
+            b = (b == null) ? headA : b.next;
+        }
+        return a;
+    }
+
+    public static void main(String args[]){
+        int[] arr1 = {1,2,4};
+        int[] arr2 = {1,3,5};
+
+        ListNode list1 = buildLL(arr1);
+        ListNode list2 = buildLL(arr2);
+
+        System.out.println("List 1 :");
+        traverse(list1);
+        System.out.println("list 2 : ");
+        traverse(list2);
+
+        System.out.println("Merge list");
+        ListNode merged = merge(list1, list2);
+        traverse(merged);
+
+        System.out.println("Reverse merged list");
+        ListNode reversed = reverseList(merged);
+        traverse(reversed);
+
+        System.out.println("Middle of Reversed list");
+        ListNode middle = middleMode(reversed);
+        System.out.println(middle.val);
+
+        System.out.println("Has Cycle ? "+ hasCycle(reversed));
+    }
+}
