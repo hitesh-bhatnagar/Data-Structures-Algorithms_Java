@@ -26,7 +26,7 @@ public class KthSmallest_element{
         
         if(root != null){
             inorder(root.left,k);
-            count ++;
+            count++;
             if(count == k) {
                 result = root.val;
                 return;
