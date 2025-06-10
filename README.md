@@ -138,6 +138,3 @@ CodeChef
 
 🏷️ Tags
 Java, DSA, Data Structures, Algorithms, Interview Preparation, Competitive Programming, Coding Questions, LeetCode, GeeksforGeeks, HackerRank, CodeChef
-
-📅 Last Updated
-This README was last updated on June 10, 2025.
