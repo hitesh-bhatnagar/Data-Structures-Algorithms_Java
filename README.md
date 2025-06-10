@@ -120,9 +120,9 @@ Your support encourages continuous improvement and updates to this repository.
 📬 Connect with Me
 GitHub: @hitesh-bhatnagar
 
-LinkedIn: Hitesh Bhatnagar
+LinkedIn: [Hitesh Bhatnagar](www.linkedin.com/in/hitesh-bhatnagar-5a3b391ba)
 
-Email: hitesh.bhatnagar@example.com
+Email: hbhatnagar917@gmail.com
 
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
