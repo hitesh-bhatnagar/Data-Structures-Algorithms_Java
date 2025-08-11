@@ -354,6 +354,7 @@ public class Graphs_usingList {
             }
 
             Graph g = buildUnweightedGraph(V, edgeList, directed);
+            printAdjList(g.adj);
 
             System.out.print("Start for BFS & DFS: ");
             int s = sc.nextInt();
@@ -375,13 +376,14 @@ public class Graphs_usingList {
             }
 
             Graph g = buildWeightedGraph(V, edgeList, directed);
+            printWeightedAdjList(g.wadj); 
 
             System.out.print("Source for Dijkstra: ");
             dijkstra(g, sc.nextInt());
             System.out.print("Source for Bellman-Ford: ");
             bellmanFord(V, edgeList, sc.nextInt());
             primMST(g);
-            kruskalMST(edgeList, V);
+            kruskalMST(edgeList, V); 
         }
 
         sc.close();
