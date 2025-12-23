@@ -23,13 +23,13 @@
 
 ---
 
-## 📘 Overview
+## Overview
 
 Welcome to the **Java DSA Repository**! This repository is a meticulously organized collection of Java implementations for fundamental data structures and algorithms. Whether you're preparing for coding interviews, competitive programming contests, or aiming to strengthen your understanding of DSA concepts, this repository serves as a valuable resource.
 
 ---
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 The repository is organized into topic-specific folders, each containing Java files with clean, well-commented code and problem solutions.
 
@@ -48,13 +48,13 @@ markdown
 Copy code
 
 Each folder includes:
-- ✅ Java code implementations
-- ✅ Key problems and solutions
-- ✅ Utility methods for testing
+-  Java code implementations
+-  Key problems and solutions
+-  Utility methods for testing
 
 ---
 
-## 🚀 Features
+## Features
 
 - **Beginner-Friendly**: Clear explanations and simple implementations
 - **Interview-Focused**: Solutions to commonly asked coding questions
@@ -64,7 +64,7 @@ Each folder includes:
 
 ---
 
-## 📚 Topics Covered
+## Topics Covered
 
 - **Arrays**: Sliding Window, Prefix Sums, Sorting, Searching
 - **Linked Lists**: Singly, Doubly, Cycle Detection, Reversal
@@ -78,7 +78,7 @@ Each folder includes:
 
 ---
 
-## 🛠️ Getting Started
+## Getting Started
 
 1. Clone the repository:
    ```bash
@@ -106,7 +106,7 @@ Submit a pull request.
 
 Please ensure that your contributions adhere to the existing coding style and include appropriate comments and documentation.
 
-⭐ Support the Project
+## Support the Project
 If you find this repository helpful:
 
 ⭐ Star the repository to show your support.
@@ -126,13 +126,6 @@ Email: hbhatnagar917@gmail.com
 
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-🔗 Related Resources
-LeetCode
-
-GeeksforGeeks
-
-HackerRank
 
 CodeChef
 
